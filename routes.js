@@ -4,6 +4,7 @@ const Assets = require('./app/controllers/assets');
 module.exports = [
   { method: 'GET', path: '/', config: Marine.report },
   { method: 'GET', path: '/report', config: Marine.report },
+  { method: 'POST', path: '/refresh', config: Marine.refresh },
   {
     method: 'GET',
     path: '/{param*}',
