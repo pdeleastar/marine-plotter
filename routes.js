@@ -6,6 +6,7 @@ module.exports = [
   { method: 'GET', path: '/report', config: Marine.report },
   { method: 'POST', path: '/refresh', config: Marine.refresh },
   { method: 'GET', path: '/clear', config: Marine.clear },
+  { method: 'GET', path: '/map', config: Marine.map },
   {
     method: 'GET',
     path: '/{param*}',

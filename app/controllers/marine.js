@@ -63,3 +63,14 @@ exports.refresh = {
   },
 
 };
+
+exports.map = {
+
+  handler: function (request, reply) {
+    reply.view('map', {
+      title: 'Couese List',
+      ships: allShips,
+    });
+  },
+
+};
