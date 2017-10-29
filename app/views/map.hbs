@@ -1,0 +1,29 @@
+<nav class="ui inverted menu">
+  <header class="header item"><a href="/"> Marine Tracker </a></header>
+  <div class="right menu">
+    <a class="active item" href="/map"> Map</a>
+    <a class="item" href="/report"> Grid </a>
+  </div>
+</nav>
+<div id="sketch">
+</div>
+<script>
+
+  var allShips = [
+    {{#each ships}}
+      {
+        msi: {{msi}},
+        x1: {{x1}},
+        y1: {{y1}},
+        x2: {{x2}},
+        y2: {{y2}},
+        x3: {{x3}},
+        y3: {{y3}},
+        x4: {{x3}},
+        y4: {{y3}},
+      },
+    {{/each}}
+  ];
+</script>
+
+<script src='js/plotships.js'></script>
