@@ -5,6 +5,8 @@ const Hapi = require('hapi');
 var server = new Hapi.Server();
 server.connection({ port: process.env.PORT || 4000 });
 
+require('./app/models/db');
+
 server.register([require('inert'), require('vision')], err => {
 
   if (err) {

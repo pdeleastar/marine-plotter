@@ -1,0 +1,23 @@
+<nav class="ui inverted menu">
+    <header class="header item"><a href="/"> Marine Tracker </a></header>
+    <div class="right menu">
+        <a class="item" href="/map"> Map</a>
+        <a class="item" href="/report"> Grid </a>
+        <a class="active-item" href="/plot"> Plot </a>
+    </div>
+</nav>
+<div id="sketch">
+    <p> this is a test</p>
+</div>
+
+<form action="/form" method="POST">
+    <div>
+        <label>MSI</label> <input placeholder="MSI" type="text" value="538007464" name="msi">
+    </div>
+    <button class="ui blue submit button"  onClick="
+      $('#timer').addClass('active');
+      $('#form').submit();">Refresh</button>
+    <div id='timer' class="ui dimmer">
+        <div class="ui text loader">Loading</div>
+    </div>
+</form>

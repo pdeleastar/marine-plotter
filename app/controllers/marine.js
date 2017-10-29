@@ -2,6 +2,7 @@
 
 const marineUtils = require('./marineutils');
 var marinetraffic = require('marinetraffic');
+const Ship = require('../models/shipdata');
 
 let count = 0;
 let allShips = [];
@@ -16,6 +17,8 @@ exports.report = {
   },
 
 };
+
+
 
 exports.clear = {
 
@@ -68,9 +71,48 @@ exports.map = {
 
   handler: function (request, reply) {
     reply.view('map', {
-      title: 'Couese List',
+      title: 'Course List',
       ships: allShips,
     });
   },
 
 };
+
+
+
+
+exports.send = {
+    handler: function (request, reply) {
+        let msi = marineUtils.getMsiNumbersFromForm(request.payload);
+        readMsi1(msi, request, reply);
+    },
+}
+
+function readMsi1(msi,  request, reply) {
+    marinetraffic(msi, function (err, result) {
+            if (err) {
+                marineUtils.reportError(err, msi);
+            } else {
+                var Ship = marineUtils.getMsiDetails(result);
+                Ship.msi = msi;
+
+                Ship.save().then(newShip => {
+                    reply.redirect('/plot');
+                }).catch(err => {
+                    reply.redirect('/');
+                });
+
+                reply.view('report', {
+                        title: 'Course List',
+                        ships: allShips,
+
+                });
+            }
+        }
+    );
+}
+
+
+
+
+
