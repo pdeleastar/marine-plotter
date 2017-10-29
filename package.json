@@ -1,0 +1,11 @@
+{
+  "name": "marine-assignment",
+  "version": "0.0.1",
+  "description": "Marine Tracker Visual Coding Assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pierre de Leastar",
+  "license": "MIT"
+}
