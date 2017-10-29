@@ -1,0 +1,35 @@
+<div class="ui ten wide column fluid form">
+  <div class="ui stacked segment">
+    <form action="/refresh" method="POST">
+      <div class="three fields">
+        <div class="field">
+          <label>MSI 1</label> <input placeholder="MSI1" type="text" value="244543000" name="msi1">
+        </div>
+        <div class="field">
+          <label>MSI2</label> <input placeholder="MSI2" type="text" value="912757117" name="msi2">
+        </div>
+        <div class="field">
+          <label>MSI3</label> <input placeholder="MSI3" type="text" value="564054000" name="msi3">
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="field">
+          <label>MSI4</label> <input placeholder="MSI4" type="text" value="477463300" name="msi4">
+        </div>
+        <div class="field">
+          <label>MSI5</label> <input placeholder="MSI5" type="text" value="512236000" name="msi5">
+        </div>
+        <div class="field">
+          <label>MSI6</label> <input placeholder="MSI6" type="text" value="533003030" name="msi6">
+        </div>
+      </div>
+      <button class="ui blue submit button"  onClick="
+      $('#timer').addClass('active');
+      $('#form').submit();"> Refresh</button>
+      <a href="/clear" class="ui blue button">Clear</a>
+      <div id='timer' class="ui dimmer">
+        <div class="ui text loader">Loading</div>
+      </div>
+    </form>
+  </div>
+</div>
