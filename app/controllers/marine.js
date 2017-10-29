@@ -17,6 +17,18 @@ exports.report = {
 
 };
 
+exports.clear = {
+
+  handler: function (request, reply) {
+    allShips.length = 0;
+    reply.view('report', {
+      title: 'Locations',
+      ships: allShips,
+    });
+  },
+
+};
+
 function readMsi(msi,  request, reply) {
   marinetraffic(msi, function (err, result) {
         count++;
