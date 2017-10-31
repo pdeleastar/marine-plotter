@@ -1,15 +1,15 @@
 var opacity = 255;
 
 function scaleX(x) {
-  x = (x + 24); // set to zero for origin
+  x = (x + 22); // set to zero for origin
   x = (x * -1); // made positive
-  x = ((x / 16) * 480); // scaled
+  x = ((x / 17) * 425); // scaled
   return x;
 }
 
 function scaleY(y) {
-  y = (y - 6);
-  y = ((y / 34) * 1020);
+  y = (y - 9);
+  y = ((y / 29) * 725);
   return y;
 }
 
@@ -31,19 +31,30 @@ scaler();
 var sketch = function (p) {
 
   p.setup = function () {
-    p.createCanvas(1100, 600);
+    p.createCanvas(725, 425);
     p.background(0);
-    p.stroke(255);
-    p.strokeWeight(1);
+    p.strokeWeight(2);
+      p.stroke(50);
+      p.fill(50);
+      //p.strokeJoin(MITER);
     console.log(allShips);
     p.lines();
   };
 
   p.lines = function () {
     for (var i = 0; i < allShips.length; i++) {
-      p.tint(255, opacity);
+      p.stroke(opacity);
+        p.strokeWeight(2);
+        p.fill(opacity);
       p.bezier(allShips[i].y1, allShips[i].x1, allShips[i].y2, allShips[i].x2, allShips[i].y3, allShips[i].x3, allShips[i].y4, allShips[i].x4);
-      opacity = -50;
+      if(i < (allShips.length-1)){
+        p.stroke(opacity-50);
+        p.strokeWeight(0.5);
+        p.line(allShips[i].y4, allShips[i].x4, allShips[i+1].y1, allShips[i+1].x1);
+        p.ellipse(allShips[i].y4, allShips[i].x4, 3, 3);
+        p.ellipse(allShips[i].y1, allShips[i].x1, 3, 3);
+      }
+      opacity = (opacity-10);
       console.log(opacity);
     }
   };

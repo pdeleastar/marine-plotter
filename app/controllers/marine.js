@@ -81,7 +81,7 @@ exports.map = {
 
 
 
-exports.send = {
+exports.plot = {
     handler: function (request, reply) {
         let msi = marineUtils.getMsiNumbersFromForm(request.payload);
         readMsi1(msi, request, reply);
@@ -102,16 +102,27 @@ function readMsi1(msi,  request, reply) {
                     reply.redirect('/');
                 });
 
-                reply.view('report', {
+                /*reply.view('report', {
                         title: 'Course List',
                         ships: allShips,
 
-                });
+                });*/
             }
         }
     );
 }
 
+
+exports.plotview = {
+
+    handler: function (request, reply) {
+        reply.view('plot', {
+            title: 'Ship Locations',
+            ships: allShips,
+        });
+    },
+
+};
 
 
 
