@@ -78,7 +78,7 @@ exports.map = {
 
 exports.plot = {
   handler: function (request, reply) {
-    let msi = marineUtils.getMsiNumbersFromForm(request.payload);
+    let msi = request.payload.msi;
     readMsi1(msi, request, reply);
   },
 };
@@ -88,20 +88,14 @@ function readMsi1(msi, request, reply) {
         if (err) {
           marineUtils.reportError(err, msi);
         } else {
-          var Ship = marineUtils.getMsiDetails(result);
-          Ship.msi = msi;
-
-          Ship.save().then(newShip => {
+          var shipData = marineUtils.getMsiDetails(result);
+          shipData.msi = msi;
+          let shipObject = new Ship(shipData);
+          shipObject.save().then(newShip => {
             reply.redirect('/plot');
           }).catch(err => {
             reply.redirect('/');
           });
-
-          /*reply.view('report', {
-                  title: 'Course List',
-                  ships: allShips,
-
-          });*/
         }
       }
   );
@@ -110,9 +104,11 @@ function readMsi1(msi, request, reply) {
 exports.plotview = {
 
   handler: function (request, reply) {
-    reply.view('plot', {
-      title: 'Ship Locations',
-      ships: allShips,
+    Ship.find({}).then(allShips => {
+      reply.view('plot', {
+        title: 'Ship Locations',
+        ships: allShips,
+      });
     });
   },
 

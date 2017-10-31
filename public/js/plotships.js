@@ -41,21 +41,23 @@ var sketch = function (p) {
   };
 
   p.lines = function () {
-    for (var i = 0; i < allShips.length; i++) {
+    for (var i = allShips.length-1; i >= 0; i--) {
+      console.log(i);
       p.stroke(opacity);
       p.strokeWeight(2);
       p.fill(opacity);
       p.bezier(allShips[i].y1, allShips[i].x1, allShips[i].y2, allShips[i].x2,
           allShips[i].y3, allShips[i].x3, allShips[i].y4, allShips[i].x4);
-      if (i < (allShips.length - 1)) {
+
+
+      /*if (i < (allShips.length - 1)) {
         p.stroke(opacity - 50);
         p.strokeWeight(0.5);
-        p.line(allShips[i].y4, allShips[i].x4, allShips[i + 1].y1, allShips[i + 1].x1);
+        p.line(allShips[i].y4, allShips[i].x4, allShips[i - 1].y1, allShips[i - 1].x1);
         p.ellipse(allShips[i].y4, allShips[i].x4, 3, 3);
         p.ellipse(allShips[i].y1, allShips[i].x1, 3, 3);
-      };
+      };*/
       opacity = (opacity - 10);
-      console.log(opacity);
     }
   };
 

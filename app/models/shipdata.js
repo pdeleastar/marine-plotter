@@ -11,8 +11,8 @@ const shipSchema = mongoose.Schema({
     x3: Number,
     y3: Number,
     x4: Number,
-    y4: Number
-});
+    y4: Number,
+  });
 
 const Ship = mongoose.model('Ship', shipSchema);
 module.exports = Ship;
