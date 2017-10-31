@@ -34,9 +34,8 @@ var sketch = function (p) {
     p.createCanvas(725, 425);
     p.background(0);
     p.strokeWeight(2);
-      p.stroke(50);
-      p.fill(50);
-      //p.strokeJoin(MITER);
+    p.stroke(50);
+    p.fill(50);
     console.log(allShips);
     p.lines();
   };
@@ -44,17 +43,18 @@ var sketch = function (p) {
   p.lines = function () {
     for (var i = 0; i < allShips.length; i++) {
       p.stroke(opacity);
-        p.strokeWeight(2);
-        p.fill(opacity);
-      p.bezier(allShips[i].y1, allShips[i].x1, allShips[i].y2, allShips[i].x2, allShips[i].y3, allShips[i].x3, allShips[i].y4, allShips[i].x4);
-      if(i < (allShips.length-1)){
-        p.stroke(opacity-50);
+      p.strokeWeight(2);
+      p.fill(opacity);
+      p.bezier(allShips[i].y1, allShips[i].x1, allShips[i].y2, allShips[i].x2,
+          allShips[i].y3, allShips[i].x3, allShips[i].y4, allShips[i].x4);
+      if (i < (allShips.length - 1)) {
+        p.stroke(opacity - 50);
         p.strokeWeight(0.5);
-        p.line(allShips[i].y4, allShips[i].x4, allShips[i+1].y1, allShips[i+1].x1);
+        p.line(allShips[i].y4, allShips[i].x4, allShips[i + 1].y1, allShips[i + 1].x1);
         p.ellipse(allShips[i].y4, allShips[i].x4, 3, 3);
         p.ellipse(allShips[i].y1, allShips[i].x1, 3, 3);
-      }
-      opacity = (opacity-10);
+      };
+      opacity = (opacity - 10);
       console.log(opacity);
     }
   };

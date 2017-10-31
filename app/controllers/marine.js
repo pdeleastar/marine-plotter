@@ -18,8 +18,6 @@ exports.report = {
 
 };
 
-
-
 exports.clear = {
 
   handler: function (request, reply) {
@@ -32,7 +30,7 @@ exports.clear = {
 
 };
 
-function readMsi(msi,  request, reply) {
+function readMsi(msi, request, reply) {
   marinetraffic(msi, function (err, result) {
         count++;
         if (err) {
@@ -78,52 +76,44 @@ exports.map = {
 
 };
 
-
-
-
 exports.plot = {
-    handler: function (request, reply) {
-        let msi = marineUtils.getMsiNumbersFromForm(request.payload);
-        readMsi1(msi, request, reply);
-    },
-}
+  handler: function (request, reply) {
+    let msi = marineUtils.getMsiNumbersFromForm(request.payload);
+    readMsi1(msi, request, reply);
+  },
+};
 
-function readMsi1(msi,  request, reply) {
-    marinetraffic(msi, function (err, result) {
-            if (err) {
-                marineUtils.reportError(err, msi);
-            } else {
-                var Ship = marineUtils.getMsiDetails(result);
-                Ship.msi = msi;
+function readMsi1(msi, request, reply) {
+  marinetraffic(msi, function (err, result) {
+        if (err) {
+          marineUtils.reportError(err, msi);
+        } else {
+          var Ship = marineUtils.getMsiDetails(result);
+          Ship.msi = msi;
 
-                Ship.save().then(newShip => {
-                    reply.redirect('/plot');
-                }).catch(err => {
-                    reply.redirect('/');
-                });
+          Ship.save().then(newShip => {
+            reply.redirect('/plot');
+          }).catch(err => {
+            reply.redirect('/');
+          });
 
-                /*reply.view('report', {
-                        title: 'Course List',
-                        ships: allShips,
+          /*reply.view('report', {
+                  title: 'Course List',
+                  ships: allShips,
 
-                });*/
-            }
+          });*/
         }
-    );
+      }
+  );
 }
-
 
 exports.plotview = {
 
-    handler: function (request, reply) {
-        reply.view('plot', {
-            title: 'Ship Locations',
-            ships: allShips,
-        });
-    },
+  handler: function (request, reply) {
+    reply.view('plot', {
+      title: 'Ship Locations',
+      ships: allShips,
+    });
+  },
 
 };
-
-
-
-
