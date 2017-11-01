@@ -1,6 +1,5 @@
 var opacity = 255;
-var strokewidth = (allShips.length*2);
-
+var strokewidth = (allShips.length * 2);
 
 function scaleX(x) {
   x = (x + 22); // set to zero for origin
@@ -40,7 +39,7 @@ var sketch = function (p) {
   };
 
   p.lines = function () {
-    for (var i = 0; i < allShips.length-1; i++) {
+    for (var i = 0; i < allShips.length - 1; i++) {
       console.log(i);
 
       p.stroke(opacity);
@@ -49,17 +48,16 @@ var sketch = function (p) {
       p.curve(allShips[i].y1, allShips[i].x1, allShips[i].y2, allShips[i].x2,
           allShips[i].y3, allShips[i].x3, allShips[i].y4, allShips[i].x4);
 
-
       if (i < (allShips.length - 1)) {
-        p.stroke((opacity+90), 0, 0);
+        p.stroke((opacity + 90), 0, 0);
         p.strokeWeight(0.5);
         p.noFill();
+
         //p.line(allShips[i].y4, allShips[i].x4, allShips[i + 1].y1, allShips[i + 1].x1);
-
-
         /*p.ellipse(allShips[i].y4, allShips[i].x4, 5, 5);
         p.ellipse(allShips[i].y1, allShips[i].x1, 5, 5);*/
-      };
+      }
+
       opacity = (opacity - 5);
       strokewidth = (strokewidth - 2);
     }
