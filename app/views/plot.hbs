@@ -2,44 +2,34 @@
 
 <h1 class="ui centered header">Ship Plot</h1>
 <div class="ui grid segment">
-    <div class="three wide column"></div>
-    <div class="three wide column segment" id="sketch"></div>
-    <div class="three wide column"></div>
-</div>
-<div class="ui grid segment">
-    <div class="three wide column"></div>
-    <div class="three wide column">
-        <form class="ui form" action="/plot" method="POST">
-        <div>
-            <label>MSI</label> <input placeholder="MSI" type="text" value="477518800" name="msi">
-        </div>
-        <button class="ui blue submit button"  onClick="
-            $('#timer').addClass('active');
-            $('#form').submit();">Refresh</button>
-        <div id='timer' class="ui dimmer">
-            <div class="ui text loader">Loading</div>
-        </div>
-        </form>
-    </div>
-    <div class="three wide column"></div>
+  <div class="three wide column"></div>
+  <div class="three wide column segment" id="sketch"></div>
+  <div class="three wide column"></div>
 </div>
 
+<div class="ui grid segment">
+  <div class="three wide column"></div>
+  {{> plotform }}
+  {{> mieerror }}
+</div>
+<div class="three wide column"></div>
+
 <script>
-    var allShips = [
-        {{#each ships}}
-            {
-                msi: {{msi}},
-                x1: {{x1}},
-                y1: {{y1}},
-                x2: {{x2}},
-                y2: {{y2}},
-                x3: {{x3}},
-                y3: {{y3}},
-                x4: {{x3}},
-                y4: {{y3}},
-            },
-        {{/each}}
-    ];
+  var allShips = [
+    {{#each ships}}
+      {
+        msi: {{msi}},
+        x1: {{x1}},
+        y1: {{y1}},
+        x2: {{x2}},
+        y2: {{y2}},
+        x3: {{x3}},
+        y3: {{y3}},
+        x4: {{x3}},
+        y4: {{y3}},
+      },
+    {{/each}}
+  ];
 </script>
 
 

@@ -6,6 +6,13 @@ function readMsi(msi, request, reply) {
   marinetraffic(msi, function (err, result) {
         if (err) {
           marineUtils.reportError(err, msi);
+          Ship.find({}).then(allShips => {
+            reply.view('plot', {
+              title: 'Ship Locations',
+              ships: allShips,
+              error: err.message,
+            });
+          });
         } else {
           var shipData = marineUtils.getMsiDetails(result);
           shipData.msi = msi;
