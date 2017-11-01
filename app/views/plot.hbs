@@ -1,11 +1,12 @@
+{{> menu _id="plot"}}
 
-<h1>Ship Plot</h1>
-<div class="ui grid">
+<h1 class="ui centered header">Ship Plot</h1>
+<div class="ui grid segment">
     <div class="three wide column"></div>
-    <div class="three wide column" id="sketch"></div>
+    <div class="three wide column segment" id="sketch"></div>
     <div class="three wide column"></div>
 </div>
-<div class="ui grid">
+<div class="ui grid segment">
     <div class="three wide column"></div>
     <div class="three wide column">
         <form class="ui form" action="/plot" method="POST">
