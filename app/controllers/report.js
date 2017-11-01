@@ -17,12 +17,4 @@ exports.report = {
 
 };
 
-exports.clear = {
 
-  handler: function (request, reply) {
-    reply.view('report', {
-      title: 'Locations',
-    });
-  },
-
-};

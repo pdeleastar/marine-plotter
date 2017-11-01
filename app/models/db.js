@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-let dbURI = 'mongodb://localhost/marine';
+let dbURI = 'mongodb://pdeleastar:123123123@ds137435.mlab.com:37435/marinetracker';
 if (process.env.NODE_ENV === 'production') {
   dbURI = process.env.MONGOLAB_URI;
 }
