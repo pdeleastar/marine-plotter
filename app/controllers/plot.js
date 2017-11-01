@@ -1,4 +1,6 @@
 const Ship = require('../models/shipdata');
+const marinetraffic = require('marinetraffic');
+const marineUtils = require('./marineutils');
 
 function readMsi(msi, request, reply) {
   marinetraffic(msi, function (err, result) {
