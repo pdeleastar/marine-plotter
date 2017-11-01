@@ -2,6 +2,8 @@ const Ship = require('../models/shipdata');
 const marinetraffic = require('marinetraffic');
 const marineUtils = require('./marineutils');
 
+let latestShip = null;
+
 function readMsi(msi, request, reply) {
   marinetraffic(msi, function (err, result) {
         if (err) {
@@ -15,6 +17,7 @@ function readMsi(msi, request, reply) {
           });
         } else {
           var shipData = marineUtils.getMsiDetails(result);
+          latestShip = shipData;
           shipData.msi = msi;
           let shipObject = new Ship(shipData);
           shipObject.save().then(newShip => {
@@ -41,6 +44,7 @@ exports.plotview = {
       reply.view('plot', {
         title: 'Ship Locations',
         ships: allShips,
+        latestShip: latestShip,
       });
     });
   },

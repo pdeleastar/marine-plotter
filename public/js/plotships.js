@@ -32,8 +32,11 @@ scaler();
 var sketch = function (p) {
 
   p.setup = function () {
-    p.createCanvas(725, 425);
-    p.background(255);
+    //p.createCanvas(725, 425);
+    //p.background(255);
+
+    p.createCanvas(window.innerWidth, 475);
+    p.background(0);
 
     p.lines();
   };

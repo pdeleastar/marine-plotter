@@ -1,14 +1,10 @@
 <form class="ui form" action="/plot" method="POST">
-  <div>
-    <div class="fields">
-      <div class="field">
-      <label>MSI</label>
-      <input placeholder="MSI" type="text" value="477518800" name="msi">
-    </div>
-    </div>
+  <div class="field">
+    <label>MSI</label>
+    <input placeholder="MSI" type="text" value="477518800" name="msi">
   </div>
   <button class="ui blue submit button"
-          onClick="$('#timer').addClass('active');$('#form').submit();">Refresh
+          onClick="$('#timer').addClass('active');$('#form').submit();"> Plot
   </button>
   <div id='timer' class="ui dimmer">
     <div class="ui text loader">Loading</div>
