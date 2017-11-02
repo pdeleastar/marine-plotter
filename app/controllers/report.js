@@ -9,7 +9,7 @@ exports.report = {
   handler: function (request, reply) {
     Ship.find({}).then(allShips => {
       reply.view('report', {
-        title: 'Ship Locations',
+        title: 'marine.art',
         ships: allShips,
       });
     });
