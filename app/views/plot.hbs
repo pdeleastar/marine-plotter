@@ -1,26 +1,41 @@
 {{> menu _id="plot"}}
 
-<h1 class="ui centered header">Ship Plot</h1>
+<h1 style="text-align: center; padding: 40px; font-family: 'Avenir Next';"><strong>MARINE.ART</strong></h1>
 
-<div id="sketch" style="justify-content: center; align-items: center; margin: 0;
-  display: flex;"></div>
+<div id="sketch" style="
+     justify-content: center;
+     align-items: center;
+     margin: 0;
+     display: flex;">
+</div>
 
-<br>
 
-<div class="ui container">
-  <div class="ui two column grid">
-    <div class="ui column segment">
-      {{> plotform }}
-    </div>
-    <div class="ui column">
-      {{#if error}}
+
+<div style="text-align: center; padding: 20px;">
+    {{> plotform }}
+    {{#if error}}
         {{> mieerror }}
-      {{/if}}
-      {{#if latestShip}}
-        {{> shipdetails }}
-      {{/if}}
-    </div>
-  </div>
+    {{/if}}
+</div>
+
+<div class="ui grid">
+    <div class="three wide column"></div>
+    <div class="ten wide column" style="font-size: medium; font-family: 'Avenir Next'; padding: 40px;">In this programme, I have decided to pull data from Marine Traffic
+        (www.marinetraffic.com) and use it to create something abstract using the Processing's P5 library.
+        Each ship has their own individual identification number, known as an MMSI ID. To add to this work,
+        go to the Marine Traffic website get the MMSI number of a ship navigating around The Cape of Good Hope
+        (around the bottom of Africa) and add it into the sketch. The ships GPS location for the last 10 hours
+        will be then used to draw, enlarge and connect various arcs & lines on the canvas. The most recent ship
+        inputted will always be in white, with ships inputted previously darkening based on the amount of new ships
+        inputted. A red line runs in chronological order from the most recent ship back to the first inputted which
+        darkens based on this order. For more about the contextualisation process and the coding behind this, download a full report <a href=‘’>here.</a></div>
+    <div class="three wide column"></div>
+</div>
+
+<div class="ui grid">
+    <div class="three wide column"></div>
+    <div class="ten wide column"  style="text-align: center; font-family: 'Avenir Next';">CS4029 Creative Coding Assignment - UL</div>
+    <div class="three wide column"></div>
 </div>
 
 <script>
