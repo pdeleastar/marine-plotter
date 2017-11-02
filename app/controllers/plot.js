@@ -10,7 +10,7 @@ function readMsi(msi, request, reply) {
           marineUtils.reportError(err, msi);
           Ship.find({}).then(allShips => {
             reply.view('plot', {
-              title: 'Ship Locations',
+              title: 'marine.art',
               ships: allShips,
               error: err.message,
             });
@@ -47,7 +47,7 @@ exports.plotview = {
   handler: function (request, reply) {
     Ship.find({}).then(allShips => {
       reply.view('plot', {
-        title: 'Ship Locations',
+        title: 'marine.art',
         ships: allShips,
         latestShip: latestShip,
       });
