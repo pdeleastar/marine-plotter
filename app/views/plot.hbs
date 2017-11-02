@@ -1,6 +1,6 @@
 {{> menu _id="plot"}}
 
-<h1 style="text-align: center; padding: 40px; font-family: 'Avenir Next';"><strong>MARINE.ART</strong></h1>
+<h1 style="text-align: center; padding: 30px; font-family: 'Avenir Next';">MARINE<strong style="color: red;">.ART</strong></h1>
 
 <div id="sketch" style="
      justify-content: center;
@@ -8,8 +8,6 @@
      margin: 0;
      display: flex;">
 </div>
-
-
 
 <div style="text-align: center; padding: 20px;">
     {{> plotform }}
@@ -20,15 +18,28 @@
 
 <div class="ui grid">
     <div class="three wide column"></div>
-    <div class="ten wide column" style="font-size: medium; font-family: 'Avenir Next'; padding: 40px;">In this programme, I have decided to pull data from Marine Traffic
-        (www.marinetraffic.com) and use it to create something abstract using the Processing's P5 library.
-        Each ship has their own individual identification number, known as an MMSI ID. To add to this work,
-        go to the Marine Traffic website get the MMSI number of a ship navigating around The Cape of Good Hope
-        (around the bottom of Africa) and add it into the sketch. The ships GPS location for the last 10 hours
-        will be then used to draw, enlarge and connect various arcs & lines on the canvas. The most recent ship
+    <div class="ten wide column" style="font-size: medium; font-family: 'Avenir Next'; padding: 40px;">
+        <h3>About</h3>
+        <hr>
+        <p>In this project, I have decided to pull data from Marine Traffic
+        (www.marinetraffic.com) and use it to create something abstract using the Processing's P5 library. Various ships GPS locations for the previous 10 hours
+        are used to draw, enlarge and connect various arcs & lines on the canvas. The most recent ship
         inputted will always be in white, with ships inputted previously darkening based on the amount of new ships
-        inputted. A red line runs in chronological order from the most recent ship back to the first inputted which
-        darkens based on this order. For more about the contextualisation process and the coding behind this, download a full report <a href=‘’>here.</a></div>
+        entered. A red line runs in chronological order from the most recent ship back to the first inputted which
+            darkens based on this order.</p>
+        <p>For more about the contextualisation process and the coding behind this, download a full report <a href=‘https://www.dropbox.com/s/h03574onrf80utq/assignment-02-report.pdf?dl=0#’ target="_blank">here.</a></p>
+        <p>To view the project files, click <a href="" target="_blank">here.</a></p>
+        <br>
+        <h3>Add an MMSI</h3>
+        <hr>
+        <p>To add an ship to the canvas:</p>
+        <ol>
+            <li>Go to the <a href="https://www.marinetraffic.com/en/ais/home/centerx:24.2/centery:-33.1/zoom:5" target="_blank">Marine Traffic</a> website.</li>
+            <li>Focus the map on the area of sea surrounding South Africa (The Cape of Good Hope).</li>
+            <li>Select a registered ship and go into the 'vessel details' view.</li>
+            <li>Copy the MMSI number & paste it into the input on the home page of this project, done!</li>
+        </ol>
+    </div>
     <div class="three wide column"></div>
 </div>
 

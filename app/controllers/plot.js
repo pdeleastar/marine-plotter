@@ -32,8 +32,13 @@ function readMsi(msi, request, reply) {
 
 exports.plot = {
   handler: function (request, reply) {
-    let msi = request.payload.msi;
-    readMsi(msi, request, reply);
+    if (request.payload.msi == '') {
+      console.log('error');
+      reply.redirect('/plot');
+    } else {
+      let msi = request.payload.msi;
+      readMsi(msi, request, reply);
+    }
   },
 };
 

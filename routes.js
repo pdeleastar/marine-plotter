@@ -3,7 +3,7 @@ const Report = require('./app/controllers/report');
 const Plot = require('./app/controllers/plot');
 
 module.exports = [
-  { method: 'GET', path: '/', config: Report.report },
+  { method: 'GET', path: '/', config: Plot.plotview },
   { method: 'GET', path: '/report', config: Report.report },
 
   { method: 'GET', path: '/plot', config: Plot.plotview },
